@@ -48,7 +48,6 @@ const observer = new MutationObserver((mutationList, observer) => {
         data: tbodyContents.map(tds => parseFloat(tds[index + 1].replace(/[^\d.-]/g, ''))),
       })),
     }
-    console.log('SLOG data: ', data);
     new Chart(
       chartElement,
       {
