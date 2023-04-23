@@ -13,7 +13,7 @@
     {
       "js": ["scripts/content.js"],
       "matches": [
-        "https://chat.openai.com"
+        "https://chat.openai.com/"
       ]
     }
   ]
