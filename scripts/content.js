@@ -24,7 +24,8 @@ const observer = new MutationObserver((mutationList, observer) => {
     if(table.classList.contains(HAS_CHART_CLASS)) return;
 
     // ['Country', 'Population']
-    const thsContents = [...table.querySelectorAll('thead tr th')].map(ths => ths.textContent);
+    const thsContents = [...table.querySelectorAll('thead tr th')]
+      .map(ths => ths.textContent);
 
     // [
     //   ['China', '1,444,216,107'],
@@ -44,7 +45,7 @@ const observer = new MutationObserver((mutationList, observer) => {
       labels: tbodyContents.map(tds => tds[0]),
       datasets: Array(datasetsCount).fill().map((_, index) => ({
         label: `${thsContents[index + 1]}`,
-        data: tbodyContents.map(tds => parseFloat(tds[index + 1].replace(/,/g, ''))),
+        data: tbodyContents.map(tds => parseFloat(tds[index + 1].replace(/[^\d.-]/g, ''))),
       })),
     }
     console.log('SLOG data: ', data);
